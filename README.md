@@ -1,18 +1,12 @@
-# Github LaTeX Template
-
-LaTeX template for Github including general CI/CD actions and Mathematica templates.
+# Polynomial Identities Involving Pascals Triangle Rows
 
 <p align="center">
-  <img src="img/readme_logo_example.png" alt="logo_example"/>
+  <img src="img/abstract.PNG" alt="logo_example"/>
 </p>
 
-[![Build PDF](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build.yml/badge.svg)
-[![Build and Deploy PDF](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-and-deploy-pdf.yml/badge.svg)](https://github.com/kolosovpetro/github-latex-template/actions/workflows/build-and-deploy.yml/badge.svg)
-![contributors count](https://img.shields.io/github/contributors/kolosovpetro/github-latex-template)
-
-## What is all about
-
-LaTeX template for Github including general CI/CD actions and Mathematica templates.
+[![Build PDF](https://github.com/kolosovpetro/PolynomialIdentitiesInvolvingPascalsTriangleRows/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/kolosovpetro/PolynomialIdentitiesInvolvingPascalsTriangleRows/actions/workflows/build.yml/badge.svg)
+[![Build and Deploy PDF](https://github.com/kolosovpetro/PolynomialIdentitiesInvolvingPascalsTriangleRows/actions/workflows/build-and-deploy-pdf.yml/badge.svg)](https://github.com/kolosovpetro/PolynomialIdentitiesInvolvingPascalsTriangleRows/actions/workflows/build-and-deploy.yml/badge.svg)
+![contributors count](https://img.shields.io/github/contributors/kolosovpetro/PolynomialIdentitiesInvolvingPascalsTriangleRows)
 
 ## Build and run in Intellij IDEA
 
@@ -33,10 +27,10 @@ LaTeX template for Github including general CI/CD actions and Mathematica templa
 
 ## How to use Mathematica package
 
-- Open the package file `GithubLatexTemplateMathematicaPackage.m` in Wolfram Mathematica, I use version 13.0
+- Open the package file `PolynomialIdentitiesInvolvingPascalsTriangleRows.m` in Wolfram Mathematica, I use version 13.0
 - Execute the package using `Shift+Enter`
-- Open the notebook file `GithubLatexTemplateMathematicaNotebook.nb`
-- Execute the line: `Needs["GithubLatexTemplateMathematicaPackage"]`
+- Open the notebook file `PolynomialIdentitiesInvolvingPascalsTriangleRows.nb`
+- Execute the line: `Needs["PolynomialIdentitiesInvolvingPascalsTriangleRows"]`
 - Continue your work as desired
 
 ## Configure CI / CD
