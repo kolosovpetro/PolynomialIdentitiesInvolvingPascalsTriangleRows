@@ -1,2 +1,103 @@
-Your introduction here.
-Include some references~\cite{bayour2017truly,benkhettou2016conformable,caputo2009time,martins2009calculus}.
+We start from the famous relation about row sums of the Pascal triangle, that is
+\begin{equation}
+    \sum_{k=0}^{n}\binom{n}{k} = 2^n,
+    \label{eq:pascal_triangle_row_sums}
+\end{equation}
+where $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ are binomial coefficients~\cite{graham1989concrete}.
+Identity~\ref{eq:pascal_triangle_row_sums} is straightforward because the Pascal's triangle is
+\begin{table}[H]
+    \begin{tabular}{c|cccccccc}
+        $n/k$ & 0 & 1 & 2  & 3  & 4  & 5  & 6 & 7 \\ [3px]
+        \hline
+        1     & 1 &   &    &    &    &    &   &   \\
+        2     & 1 & 2 & 1  &    &    &    &   &   \\
+        3     & 1 & 3 & 3  & 1  &    &    &   &   \\
+        4     & 1 & 4 & 6  & 4  & 1  &    &   &   \\
+        5     & 1 & 5 & 10 & 10 & 5  & 1  &   &   \\
+        6     & 1 & 6 & 15 & 20 & 15 & 6  & 1 &   \\
+        7     & 1 & 7 & 21 & 35 & 35 & 21 & 7 & 1
+    \end{tabular}
+    \caption{Pascal's triangle~\cite{conway1996pascal}.
+    Each $k-$th term of $n-$th row is $\binom{n}{k}\cdot 1^k$.} \label{tab:pascal_triagnle}
+\end{table}
+Consider a generating function such as $f_1(n,k) = \binom{n}{k}\cdot 2^k$.
+The function $f_1(n,k)$ generates the following Pascal-like triangle
+\begin{center}
+    \begin{tabular}{rccccccccc}
+        & & & & & 1 \\\noalign{\smallskip\smallskip}
+        & & & & 1 & & 2 \\\noalign{\smallskip\smallskip}
+        & & & 1 & & 4 & & 4 \\\noalign{\smallskip\smallskip}
+        & & 1 & & 6 & & 12 & & 8 \\\noalign{\smallskip\smallskip}
+        & 1 & & 8 & & 24 & & 32 & & 16 \\\noalign{\smallskip\smallskip}
+    \end{tabular}
+\end{center}
+\begin{center}
+    Figure 5. Triangle built by $\binom{n}{k}\cdot 2^k, \ 0\leq k\leq n\leq 4$.\\
+\end{center}
+We can notice that
+\begin{equation}
+    \label{hyp2}
+    \sum_{k=0}^{n}\binom{n}{k}\cdot 2^k=3^n, \ \ \ 0\leq k\leq n, \ \ (n, \ k)\in\mathbb{N}
+\end{equation}
+Hereby, let be theorem
+\begin{thm}
+    Volume of \textit{n}-dimension hypercube with length \textit{m} could be calculated as
+    \begin{equation}
+        \label{hyp3}
+        m^n=\sum_{k=0}^{n}\sum_{j=0}^{k}\binom{n}{k}\binom{k}{j}(-1)^{k-j}m^j
+    \end{equation}
+    where m and n - positive integers, see \cite{10}.
+    \begin{proof}
+        Recall induction over \textit{m}, in (\hyperref[hyp1]{1.1}) is shown a well-known example for $m=2$.
+        \begin{equation}
+            \label{d1}
+            2^n=\sum_{k=0}^{n}\binom{n}{k}(2-1)^k
+        \end{equation}
+        Review (\hyperref[d1]{1.5}) and suppose that
+        \begin{equation}
+            \label{hyp4}
+            (\underbrace{2+1}_{m=3})^n=\sum_{k=0}^{n}\binom{n}{k}\cdot (\underbrace{(2-1)+1}_{m-1})^k
+        \end{equation}
+        And, obviously, this statement holds by means of Newton's Binomial Theorem \cite{2}, \cite{4} given $m=3$, more detailed, recall expansion for $(x+1)^n$ to show it.
+        \begin{equation}
+            \label{d2}
+            (x+1)^n=\sum_{k=0}^{n}\binom{n}{k}x^k
+        \end{equation}
+        Substituting $x=2$ to (\hyperref[d2]{1.7}) we have reached (\hyperref[hyp4]{1.6}).\\
+        Next, let show example for each $m\in\mathbb{N}$. Recall Binomial theorem to show this
+        \begin{equation}
+            \label{hyp5}
+            m^n=\sum_{k=0}^{n}\binom{n}{k}\cdot (m-1)^k
+        \end{equation}
+        Hereby, for $m+1$ we receive Binomial theorem again
+        \begin{equation}
+            \label{hyp6}
+            (m+1)^n=\sum_{k=0}^{n}\binom{n}{k}\cdot m^k
+        \end{equation}
+        Review result from (\hyperref[hyp5]{1.8}) and substituting Binomial expansion $\sum_{j=0}^{k}\binom{k}{j}(-1)^{n-k}m^j$ instead $(m-1)^k$ we receive desired result
+        \begin{eqnarray}
+            \label{hyp8}
+            m^n &=& \sum_{k=0}^{n}\binom{n}{k}\cdot \underbrace{(m-1)^k}_{\sum_{j=0}^{k}\binom{k}{j}(-1)^{k-j}m^j}=\sum_{k=0}^{n}\binom{n}{k}\sum_{j=0}^{k}\binom{k}{j}(-1)^{k-j}m^j\\
+            &=& \sum_{k=0}^{n}\sum_{j=0}^{k}\binom{n}{k}\binom{k}{j}(-1)^{k-j}m^j \nonumber
+        \end{eqnarray}
+        This completes the proof.
+    \end{proof}
+\end{thm}
+\begin{lem}
+    Number of elements $k-$face elements $\mathscr{E}_k(\mathrm{\mathbf{Y}}_n^p)$ of Generalized Hypercube $\mathrm{\mathbf{Y}}_n^p$ equals to
+    \begin{equation}
+        \label{l1}
+        \mathscr{E}_k(\mathrm{\mathbf{Y}}_n^p)=\sum_{j=0}^{k}\binom{n}{k}\binom{k}{j}(-1)^{k-j}(p-1)^j
+    \end{equation}
+\end{lem}
+Expression (\hyperref[hyp8]{1.10}) has Multinomial analog
+\begin{equation}
+    \label{m1}
+    \sum_{a_1+a_2+\cdots+a_k=n}\binom{n}{a_1,a_2,\ldots,a_k}=k^n
+\end{equation}
+%To check this expression (\hyperref[hyp8]{1.10}) use Mathematica code
+%\begin{spverbatim}
+%    In[19]:= Sum[Sum[Binomial[n,k]*Binomial[k,j]*(-1)^(k-j)*m^j,
+%        {j, 0, k}],{k, 0, n}]
+%\end{spverbatim}
+It could be found at .txt file in the last line \href{https://kolosovpetro.github.io/mathematica_codes/Series_Representation_Mathematica_codes.txt}{here}.
