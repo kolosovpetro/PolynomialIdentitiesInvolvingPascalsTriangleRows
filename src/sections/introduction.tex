@@ -1,6 +1,6 @@
 We start from the famous relation about row sums of the Pascal triangle, that is
 \begin{equation}
-    \sum_{k=0}^{n}\binom{n}{k} = 2^n,
+    2^n = \sum_{k=0}^{n}\binom{n}{k},
     \label{eq:pascal_triangle_row_sums}
 \end{equation}
 where $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ are binomial coefficients~\cite{graham1989concrete}.
@@ -46,7 +46,7 @@ The function $f_2(n,k)$ generates the following Pascal-like triangle
 \end{table}
 Now we can notice that
 \begin{equation}
-    \sum_{k=0}^{n} \binom{n}{k} \cdot 2^k = 3^n\label{eq:third_power}
+    3^n = \sum_{k=0}^{n} \binom{n}{k} \cdot 2^k\label{eq:third_power}
 \end{equation}
 Continue similarly we can generalize the equations~\eqref{eq:pascal_triangle_row_sums},~\eqref{eq:third_power} as follows
 \begin{align*}
@@ -56,9 +56,11 @@ Continue similarly we can generalize the equations~\eqref{eq:pascal_triangle_row
     &\dots \\
     m^n &= \sum_{k=0}^{n}\binom{n}{k} \cdot (m-1)^k
 \end{align*}
-Therefore, let be a theorem
-\begin{thm}
+Obviously, it is simply a form of the Binomial theorem $(m+1)^n = \sum_{k=0}^{n} \binom{n}{k} m^k$.
+Therefore, we conclude this version of the Binomial theorem as
+\begin{thm} (Binomial theorem.)
     The following identity involving polynomial $m^n$ holds
+    \label{thm:theorem-1}
     \begin{equation}
         m^n=\sum_{k=0}^{n}\sum_{j=0}^{k}\binom{n}{k}\binom{k}{j}(-1)^{k-j}m^j\label{eq:theorem-1}
     \end{equation}
@@ -77,17 +79,20 @@ Therefore, let be a theorem
         However, we are able to expand the part $(m-1)^k$ by means of Binomial theorem~\cite{AbraSteg72}, that is
         \[
             (m-1)^k = \sum_{j=0}^{k} \binom{k}{j} (-1)^{k-j} m^j
+            = \sum_{j=0}^{k} \binom{k}{j} (-1)^{k} m^{k-j}
         \]
         So that now we are able to merge both results $m^n = \sum_{k=0}^{n}\binom{n}{k} \cdot (m-1)^k$
-        and $(m-1)^k = \sum_{j=0}^{k} \binom{k}{j} (-1)^{k-j} m^j$ to receive
+        and $(m-1)^k = \sum_{j=0}^{k} \binom{k}{j} (-1)^{k-j} m^j = \sum_{j=0}^{k} \binom{k}{j} (-1)^{k} m^{k-j}$
+        to receive
         \begin{align*}
             \label{hyp8}
             m^n
-            &=& \sum_{k=0}^{n} \binom{n}{k} \cdot \underbrace{(m-1)^k}_{\sum_{j=0}^{k} \binom{k}{j} (-1)^{k-j} m^j}
-            =\sum_{k=0}^{n} \binom{n}{k} \sum_{j=0}^{k} \binom{k}{j} (-1)^{k-j} m^j\\
-            &=& \sum_{k=0}^{n} \sum_{j=0}^{k} \binom{n}{k} \binom{k}{j} (-1)^{k-j} m^j
+            &= \sum_{k=0}^{n} \binom{n}{k} \cdot (m-1)^k
+            =\sum_{k=0}^{n} \binom{n}{k} \sum_{j=0}^{k} \binom{k}{j} (-1)^{k-j} m^j \\
+            &= \sum_{k=0}^{n} \sum_{j=0}^{k} \binom{n}{k} \binom{k}{j} (-1)^{k-j} m^j \\
+            &= \sum_{k=0}^{n} \sum_{j=0}^{k} \binom{n}{k} \binom{k}{j} (-1)^{k} m^{k-j}
         \end{align*}
-        Theorem~\eqref{eq:theorem-1} may be verified using Mathematica command \texttt{PolynomialIdentity[m, n]}
+        Theorem~\eqref{thm:theorem-1} may be verified using Mathematica command \texttt{PolynomialIdentity[m, n]}
         at~\cite{PK22Source}.
         This completes the proof.
     \end{proof}
@@ -98,5 +103,7 @@ Moreover, by means of the binomial identity [\cite{gross2016combinatorial}, Chap
 \]
 The polynomial $m^n$ is identical to
 \[
-    m^n = \sum_{k=0}^{n} \sum_{j=0}^{k} \binom{n}{j} \binom{n-j}{k-j} (-1)^{k-j} m^j
+    m^n
+    = \sum_{k=0}^{n} \sum_{j=0}^{k} \binom{n}{j} \binom{n-j}{k-j} (-1)^{k-j} m^j
+    = \sum_{k=0}^{n} \sum_{j=0}^{k} \binom{n}{j} \binom{n-j}{k-j} (-1)^{k} m^{k-j}
 \]
